@@ -27,6 +27,7 @@ function QrPage() {
             link.click();
             setResult('')
         }
+        return false
       }
     const  handleError = (err:any) => {
         console.error(err)
