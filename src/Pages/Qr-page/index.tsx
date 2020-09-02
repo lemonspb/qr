@@ -22,9 +22,10 @@ function QrPage() {
         if (data) {
             setResult(data)
             const link = document.createElement('a');
-            link.href = data;
+            link.href = result;
             link.target = '_blank';
             link.click();
+            setResult('')
         }
       }
     const  handleError = (err:any) => {
