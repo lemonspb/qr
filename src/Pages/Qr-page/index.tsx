@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect,useCallback} from 'react';
 import QrReader from 'react-qr-reader'
 
 
@@ -19,13 +19,18 @@ function QrPage() {
     },[isMobile])
 
    const  handleScan = (data:string | null) => {
+
         if (data) {
-            setResult(data)
-            const link = document.createElement('a');
-            link.href = data;
+          const memoizedCallback = useCallback(
+            () => {
+              data
+            },
+            [data],
+          );
+            const link:any = document.createElement('a');
+            link.href = memoizedCallback;
             link.target = '_blank';
             link.click();
-            setResult('')
         }
         return false
       }
