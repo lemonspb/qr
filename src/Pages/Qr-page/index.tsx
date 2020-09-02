@@ -14,7 +14,8 @@ function QrPage() {
    const  handleScan = (data:string | null) => {
         if (data) {
             setResult(data)
-            window.open(data)
+            const w = window.open(data);
+             w?.document.close();
         }
       }
     const  handleError = (err:any) => {
@@ -26,7 +27,7 @@ function QrPage() {
     <div>
         <h1>Отсканируйте QR код</h1>
     <QrReader
-      delay={1000}
+      delay={2000}
       onError={handleError}
       onScan={handleScan}
       style={{ width: '100%' }}
