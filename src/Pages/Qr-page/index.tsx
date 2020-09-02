@@ -22,7 +22,7 @@ function QrPage() {
         if (data) {
             setResult(data)
             const link = document.createElement('a');
-            link.href = result;
+            link.href = data;
             link.target = '_blank';
             link.click();
             setResult('')
