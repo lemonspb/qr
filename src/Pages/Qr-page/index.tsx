@@ -27,6 +27,7 @@ function QrPage() {
             link.href = result;
             link.target = '_blank';
             link.click();
+            link.href = ''
             setResult('')
         }
       }
