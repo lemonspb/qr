@@ -42,7 +42,7 @@ function QrPage() {
         {isMobile?<QrReader
       delay={2000}
       onError={handleError}
-      onScan={(data)=>handleScan(data)}
+      onScan={handleScan}
       style={{ width: '100%' }}
     />:'Зайдите с мобильного устройства'}
     <div>{result}</div>
