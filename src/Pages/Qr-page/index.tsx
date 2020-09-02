@@ -21,8 +21,10 @@ function QrPage() {
    const  handleScan = (data:string | null) => {
         if (data) {
             setResult(data)
-            const w = window.open(data);
-             w?.document.close();
+            const link = document.createElement('a');
+            link.href = data;
+            link.target = '_blank';
+            link.click();
         }
       }
     const  handleError = (err:any) => {
