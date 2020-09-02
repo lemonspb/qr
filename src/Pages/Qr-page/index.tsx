@@ -26,7 +26,7 @@ function QrPage() {
     <div>
         <h1>Отсканируйте QR код</h1>
     <QrReader
-      delay={300}
+      delay={1000}
       onError={handleError}
       onScan={handleScan}
       style={{ width: '100%' }}
