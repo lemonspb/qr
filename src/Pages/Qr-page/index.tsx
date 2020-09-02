@@ -9,11 +9,11 @@ import QrReader from 'react-qr-reader'
 
 function QrPage() {
 
-    const [result, setResult] = useState()
+    const [result, setResult] = useState('')
 
-   const  handleScan = (data:any) => {
+   const  handleScan = (data:string | null) => {
         if (data) {
-            console.log(data)
+            setResult(data)
         }
       }
     const  handleError = (err:any) => {
@@ -29,7 +29,7 @@ function QrPage() {
       onScan={handleScan}
       style={{ width: '100%' }}
     />
-    <div>dsfsdfsd</div>
+    <div>{result}</div>
   </div>
   );
 }
