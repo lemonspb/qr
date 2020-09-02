@@ -1,4 +1,4 @@
-import React,{useState, useEffect,useCallback} from 'react';
+import React,{useState, useEffect} from 'react';
 import QrReader from 'react-qr-reader'
 
 
@@ -11,6 +11,8 @@ function QrPage() {
 
     const [result, setResult] = useState('')
     const [isMobile, setIsMobile] = useState(true)
+
+
     useEffect(()=>{
         if (typeof window.orientation === 'undefined') { 
             setIsMobile(false)
@@ -19,20 +21,14 @@ function QrPage() {
     },[isMobile])
 
    const  handleScan = (data:string | null) => {
-
         if (data) {
-          const memoizedCallback = useCallback(
-            () => {
-              data
-            },
-            [data],
-          );
-            const link:any = document.createElement('a');
-            link.href = memoizedCallback;
+            setResult(data)
+            const link = document.createElement('a');
+            link.href = result;
             link.target = '_blank';
             link.click();
+            setResult('')
         }
-        return false
       }
     const  handleError = (err:any) => {
         console.error(err)
@@ -45,7 +41,7 @@ function QrPage() {
         {isMobile?<QrReader
       delay={2000}
       onError={handleError}
-      onScan={handleScan}
+      onScan={(data)=>handleScan(data)}
       style={{ width: '100%' }}
     />:'Зайдите с мобильного устройства'}
     <div>{result}</div>
