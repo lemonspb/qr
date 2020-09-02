@@ -14,8 +14,7 @@ function QrPage() {
    const  handleScan = (data:string | null) => {
         if (data) {
             setResult(data)
-            const w = window.open(result);
-            setResult('')
+            const w = window.open(data);
              w?.document.close();
         }
       }
