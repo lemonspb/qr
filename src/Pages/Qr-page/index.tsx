@@ -9,10 +9,7 @@ import QrReader from 'react-qr-reader'
 
 function QrPage() {
 
-    const [result, setResult] = useState('')
     const [isMobile, setIsMobile] = useState(true)
-
-
     useEffect(()=>{
         if (typeof window.orientation === 'undefined') { 
             setIsMobile(false)
@@ -22,13 +19,10 @@ function QrPage() {
 
    const  handleScan = (data:string | null) => {
         if (data) {
-            setResult(data)
             const link = document.createElement('a');
-            link.href = result;
+            link.href = data;
             link.target = '_blank';
             link.click();
-            link.href = ''
-            setResult('')
         }
       }
     const  handleError = (err:any) => {
@@ -45,7 +39,6 @@ function QrPage() {
       onScan={handleScan}
       style={{ width: '100%' }}
     />:'Зайдите с мобильного устройства'}
-    <div>{result}</div>
   </div>
   );
 }
