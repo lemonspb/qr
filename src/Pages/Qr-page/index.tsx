@@ -32,7 +32,7 @@ function QrPage() {
       {!qrResult?<>
         <h1>Отсканируйте QR код</h1>
         {isMobile?<QrReader
-      delay={false}
+      delay={1000}
       onError={handleError}
       onScan={handleScan}
       style={{ width: '100%' }}
