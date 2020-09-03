@@ -1,0 +1,25 @@
+.warning{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 2rem;
+    text-align: center;
+    &__container{
+        width: 50%;
+        height: 50%;
+        color: #fff;
+        background: #518ed0;
+        box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+        border-radius: .2em;
+        padding: 0 0 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        svg{
+            fill:#fff;
+        }
+    }
+}
