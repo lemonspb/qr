@@ -19,7 +19,7 @@ function QrPage() {
 
    const  handleScan = (data:string | null) => {
         if (data) {
-     
+          setQrResult(data)
         }
       }
     const  handleError = (err:any) => {
