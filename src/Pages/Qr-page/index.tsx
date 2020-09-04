@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import QrReader from 'react-qr-reader';
 import './style.scss';
 import WarningContent from '../../Components/WarningContent'
@@ -9,12 +9,12 @@ import Title from '../../Components/Title'
 function QrPage() {
   const [qrResult, setQrResult] = useState('')
   const [isMobile, setIsMobile] = useState(true)
+  const qrRef:any = useRef()
   useEffect(() => {
     if (typeof window.orientation === 'undefined') {
-      setIsMobile(false)
+      setIsMobile(true)
     }
-
-  }, [isMobile])
+  }, [])
 
   const handleScan = (data: string | null) => {
     if (data) {
@@ -28,6 +28,14 @@ function QrPage() {
   const onClearQr = () => {
         setQrResult('')
   } 
+  const onImageLoad = (event:React.SyntheticEvent<HTMLImageElement>) => {
+    console.log(event.target)
+} 
+
+const openImageDialog = () => {
+  qrRef.current.openImageDialog()
+
+}
 
 
 
@@ -42,11 +50,13 @@ function QrPage() {
               position={'center'}
             />
             <QrReader
+              ref={qrRef}
               delay={1000}
               onError={handleError}
+              onImageLoad={onImageLoad}
               onScan={handleScan}
               style={{ width: '100%' }}
-              legacyMode={false}
+              legacyMode={true}
             />
           </div>
           : <WarningContent
@@ -56,7 +66,7 @@ function QrPage() {
           onClear={onClearQr}
           result={qrResult}
         />}
-
+    <input type="button" value="Submit QR Code" onClick={openImageDialog} />
     </div>
   );
 }
