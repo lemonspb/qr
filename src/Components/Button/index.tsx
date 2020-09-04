@@ -1,17 +1,20 @@
 import React from "react";
-interface QrResult{
-    result: string
+import './style.scss';
+
+interface Button{
+    title: string
+    action: Function
 }
 
 
-function Button(props:QrResult) {
-  const { result } = props;
+function Button(props:Button) {
+  const { title, action } = props;
 
   return (
-    <button className="warning">
-    
+    <button className="button" onClick={()=>action()}>
+    {title}
     </button>
   );
 }
 
-export default QrResult;
+export default Button;

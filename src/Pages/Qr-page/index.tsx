@@ -7,11 +7,11 @@ import Title from '../../Components/Title'
 
 
 function QrPage() {
-  const [qrResult, setQrResult] = useState('')
+  const [qrResult, setQrResult] = useState('https://vercel.com/dashboard')
   const [isMobile, setIsMobile] = useState(true)
   useEffect(() => {
     if (typeof window.orientation === 'undefined') {
-      setIsMobile(false)
+      setIsMobile(true)
     }
 
   }, [isMobile])
@@ -24,6 +24,11 @@ function QrPage() {
   const handleError = (err: any) => {
     console.error(err)
   }
+
+  const onClearQr = () => {
+    setQrResult('')
+  } 
+
 
 
   return (
@@ -41,12 +46,14 @@ function QrPage() {
               onError={handleError}
               onScan={handleScan}
               style={{ width: '100%' }}
+              legacyMode={true}
             />
           </div>
           : <WarningContent
             content={'Зайдите с мобильного устройства'}
           />}
       </> : <QrResult
+          onClear={onClearQr}
           result={qrResult}
         />}
 
