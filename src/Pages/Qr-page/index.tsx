@@ -7,7 +7,7 @@ import Title from '../../Components/Title'
 
 
 function QrPage() {
-  const [qrResult, setQrResult] = useState('')
+  const [qrResult, setQrResult] = useState('dfsdf')
   const [isMobile, setIsMobile] = useState(true)
   useEffect(() => {
     if (typeof window.orientation === 'undefined') {
@@ -29,7 +29,7 @@ function QrPage() {
   return (
     <div className='page-qr'>
       {!qrResult ? <>
-        {!isMobile ?
+        {isMobile ?
           <div className='page-qr__wrap'>
             <Title
               Tag={'h2'}
