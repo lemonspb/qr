@@ -26,7 +26,7 @@ function QrPage() {
   }
 
   const onClearQr = () => {
-    setQrResult('')
+        setQrResult('')
   } 
 
 
