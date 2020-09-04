@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import QrReader from 'react-qr-reader';
 import './style.scss';
 import WarningContent from '../../Components/WarningContent'
@@ -7,49 +7,50 @@ import Title from '../../Components/Title'
 
 
 function QrPage() {
-    const [qrResult, setQrResult] = useState('')
-    const [isMobile, setIsMobile] = useState(true)
-    useEffect(()=>{
-        if (typeof window.orientation === 'undefined') { 
-            setIsMobile(true)
-         }
+  const [qrResult, setQrResult] = useState('')
+  const [isMobile, setIsMobile] = useState(true)
+  useEffect(() => {
+    if (typeof window.orientation === 'undefined') {
+      setIsMobile(true)
+    }
 
-    },[isMobile])
+  }, [isMobile])
 
-   const  handleScan = (data:string | null) => {
-        if (data) {
-          setQrResult(data)
-        }
-      }
-    const  handleError = (err:any) => {
-        console.error(err)
-      }
+  const handleScan = (data: string | null) => {
+    if (data) {
+      setQrResult(data)
+    }
+  }
+  const handleError = (err: any) => {
+    console.error(err)
+  }
 
 
   return (
-    <div>
-      {!qrResult?<>
-        {isMobile?
-        <>
-        <Title 
-        Tag={'h2'}
-        text={'Отсканируйте qr код'}
-        />
-        <QrReader
-      delay={1000}
-      onError={handleError}
-      onScan={handleScan}
-      style={{ width: '100%' }}
-    />
-    </>
-    :<WarningContent 
-          content={'Зайдите с мобильного устройства'}
-    />}
-    </>: <QrResult 
+    <div className='page-qr'>
+      {!qrResult ? <>
+        {!isMobile ?
+          <div className='page-qr__wrap'>
+            <Title
+              Tag={'h2'}
+              text={'Отсканируйте QR код'}
+              position={'center'}
+            />
+            <QrReader
+              delay={1000}
+              onError={handleError}
+              onScan={handleScan}
+              style={{ width: '100%' }}
+            />
+          </div>
+          : <WarningContent
+            content={'Зайдите с мобильного устройства'}
+          />}
+      </> : <QrResult
           result={qrResult}
-    />}
-    
-  </div>
+        />}
+
+    </div>
   );
 }
 
