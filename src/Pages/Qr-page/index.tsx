@@ -7,7 +7,7 @@ import Title from '../../Components/Title'
 
 
 function QrPage() {
-  const [qrResult, setQrResult] = useState('dfsdf')
+  const [qrResult, setQrResult] = useState('')
   const [isMobile, setIsMobile] = useState(true)
   useEffect(() => {
     if (typeof window.orientation === 'undefined') {
