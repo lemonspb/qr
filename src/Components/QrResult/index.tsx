@@ -12,7 +12,7 @@ function QrResult(props: QrResult) {
         <section className="qr-result">
             <div className='qr-result__toolbar'></div>
             <div className='qr-result__line-result'>{result}</div>
-            <a href={result} target='_blank' />
+            <a href={result} target='_blank' >{result}</a>
         </section> 
     );
 }

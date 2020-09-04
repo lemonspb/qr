@@ -11,7 +11,7 @@ function QrPage() {
   const [isMobile, setIsMobile] = useState(true)
   useEffect(() => {
     if (typeof window.orientation === 'undefined') {
-      setIsMobile(true)
+      setIsMobile(false)
     }
 
   }, [isMobile])
