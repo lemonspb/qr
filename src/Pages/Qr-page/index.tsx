@@ -46,7 +46,7 @@ function QrPage() {
               onError={handleError}
               onScan={handleScan}
               style={{ width: '100%' }}
-              legacyMode={true}
+              legacyMode={false}
             />
           </div>
           : <WarningContent
