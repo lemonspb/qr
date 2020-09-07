@@ -16,18 +16,15 @@ function QrPage() {
     if (typeof window.orientation === 'undefined') {
       setIsMobile(false)
     }
-
-    setTimeout(() => {
-      setErrorMessage(false)
-    }, 5000)
-  }, [errorMessage])
+  }, [])
 
   const handleScan = (data: string | null) => {
-    console.log(data,'---------------')
+    setErrorMessage(false)
+
     if (data) {
       setQrResult(data)
     }
-    if(data === null){
+    else{
       setErrorMessage(true)
 
     }
@@ -47,6 +44,7 @@ const openImageDialog = () => {
   qrRef.current.openImageDialog()
 }
 
+console.log(errorMessage, '-----------------')
 
   return (
     <div className='page-qr'>
@@ -85,7 +83,8 @@ const openImageDialog = () => {
               legacyMode
 
             />}
-          { errorMessage &&  <Message  text='Невозможно считать QR код'
+         <Message  text='Невозможно считать QR код'
+          showMessage={errorMessage}
              />}
     </div>
   );
