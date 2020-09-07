@@ -1,7 +1,6 @@
 import React from "react";
-import { Phone } from "../../Assets/Icons/svg";
 import "./style.scss";
-
+import  Icon from '../Icon'
 interface WarningContent{
   content: string
 }
@@ -15,7 +14,7 @@ function WarningContent(props:WarningContent) {
       <div className="warning__container">
         <h3>{content}</h3>
         <div>
-          <Phone />
+        <Icon  type='phone'/>
         </div>
       </div>
     </section>

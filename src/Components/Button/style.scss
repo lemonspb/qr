@@ -1,8 +1,8 @@
 @import '../../colors.scss';
 
 
-
 .button{
+    box-sizing: content-box;
     border: none;
     border-radius: .2em;
     background-color: $blue;

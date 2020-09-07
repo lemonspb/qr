@@ -10,9 +10,10 @@ function QrPage() {
   const [qrResult, setQrResult] = useState('https://cdn.cccs.edu/landing-pages/email-generation.html')
   const [isMobile, setIsMobile] = useState(true)
   const qrRef:any = useRef()
+
   useEffect(() => {
     if (typeof window.orientation === 'undefined') {
-      setIsMobile(true)
+      setIsMobile(false)
     }
   }, [])
 
@@ -52,7 +53,6 @@ function QrPage() {
               onImageLoad={onImageLoad}
               onScan={handleScan}
               style={{ width: '100%' }}
-              legacyMode={true}
             />
           </div>
           : <WarningContent
