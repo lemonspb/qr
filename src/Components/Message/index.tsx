@@ -10,7 +10,6 @@ interface Message {
 const Message = (props: Message) => {
     const { text, showMessage } = props;
     const [isShow, setIsShow] = useState(showMessage)
-        console.log(isShow)
 
     useEffect(() => {
         setIsShow(showMessage)
@@ -19,12 +18,20 @@ const Message = (props: Message) => {
           }, 5000)
       }, [showMessage]) 
 
+
+      const message = classNames({
+         message: true,
+        'message--visible': !isShow,
+        'message--hide': isShow,
+    });
+
+
     return (
         <>
-        {isShow && 
-        <div className={'message'}>
+    
+        <div className={message}>
             {text}
-        </div>}
+        </div>
         </>
     )
 
