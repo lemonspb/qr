@@ -1,12 +1,19 @@
+@import '../../colors.scss';
+
+
+
 .button{
     border: none;
     border-radius: .2em;
-    background: #518ed0;
-    color: #fff;
+    background-color: $blue;
+    color: $white;
     cursor: pointer;
     outline: none;
     font-size: 1.1rem;
     height: 3em;
     display: block;
-
+    transition: background 300ms ease-in-out;
+    &:hover{
+        background-color:$light__blue;
+    }
 }

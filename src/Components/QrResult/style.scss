@@ -1,19 +1,26 @@
+@import '../../colors.scss';
+
+
 .qr-result{
 
     &__toolbar{
         width: 100%;
         padding: 15px;
-        color: #fff;
+        color: $white;
         // background: #518ed0;
         // box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
     }
     &__link-line{
-        background-color: #fff ;
-        padding: 10px;
+        background-color: $white;
+        padding: 15px;
         width: 100%;
+        margin-bottom: 15px;
         a{
-            color: #000;
+            color: $black;
             text-decoration: none;
         }
     }
+   &__content{
+       padding: 0 15px;
+   } 
 }

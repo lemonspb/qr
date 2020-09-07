@@ -7,7 +7,7 @@ import Title from '../../Components/Title'
 
 
 function QrPage() {
-  const [qrResult, setQrResult] = useState('')
+  const [qrResult, setQrResult] = useState('https://cdn.cccs.edu/landing-pages/email-generation.html')
   const [isMobile, setIsMobile] = useState(true)
   const qrRef:any = useRef()
   useEffect(() => {
@@ -29,13 +29,9 @@ function QrPage() {
         setQrResult('')
   } 
   const onImageLoad = (event:React.SyntheticEvent<HTMLImageElement>) => {
-    console.log(event.target)
+    console.log(event)
 } 
 
-const openImageDialog = () => {
-  qrRef.current.openImageDialog()
-
-}
 
 
 
@@ -66,7 +62,7 @@ const openImageDialog = () => {
           onClear={onClearQr}
           result={qrResult}
         />}
-    <input type="button" value="Submit QR Code" onClick={openImageDialog} />
+
     </div>
   );
 }

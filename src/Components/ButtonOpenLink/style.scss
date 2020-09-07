@@ -1,3 +1,5 @@
+@import '../../colors.scss';
+
 .button-browser{
     flex-direction: column;
     display: flex;
@@ -5,15 +7,20 @@
     border: none;
     padding: 10px;
     border-radius: .2em;
-    background: #518ed0;
-    color: #fff;
+    background: $blue;
+    color: $white;
     cursor: pointer;
     outline: none;
     font-size: 1.1rem;
     height: 3em;
+    text-decoration: none;
+    transition: background 300ms ease-in-out ;
     svg{
-        fill: #fff;
+        fill: $white;
         width: 30px;
         height: 30px;
+    }
+    &:hover{
+        background: $light__blue;
     }
 }

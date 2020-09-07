@@ -18,9 +18,11 @@ function QrResult(props: QrResult) {
             action={onClear}
             /></div>
             <div className='qr-result__link-line'>URL: <a href={result} target='_blank' title='Открыть' >{result}</a></div>
+            <div className='qr-result__content'>
                 <ButtonBrowserLink 
                 link={result}
                 />
+            </div>
         </section>
     );
 }

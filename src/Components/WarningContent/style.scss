@@ -1,3 +1,6 @@
+@import '../../colors.scss';
+
+
 .warning{
     height: 100vh;
     display: flex;
@@ -9,8 +12,8 @@
     &__container{
         width: 50%;
         height: 50%;
-        color: #fff;
-        background: #518ed0;
+        color: $white;
+        background: $blue;
         box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
         border-radius: .2em;
         padding: 0 0 20px;
@@ -19,7 +22,7 @@
         flex-direction: column;
         justify-content: center;
         svg{
-            fill:#fff;
+            fill:$white;
         }
     }
 }
