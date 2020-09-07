@@ -23,23 +23,24 @@ function QrPage() {
   }, [errorMessage])
 
   const handleScan = (data: string | null) => {
+    console.log(data,'---------------')
     if (data) {
-      console.log('wfksdfopsdkfl;sdkf;ldkfl;')
       setQrResult(data)
     }
-    else{
+    if(data === null){
       setErrorMessage(true)
+
     }
   }
   const handleError = (err: any) => {
-    console.log(err)
+    setErrorMessage(true)
+
   }
 
   const onClearQr = () => {
         setQrResult('')
   } 
   const onImageLoad = (event:React.SyntheticEvent<HTMLImageElement>) => {
-    console.log(event)
 } 
 
 const openImageDialog = () => {
