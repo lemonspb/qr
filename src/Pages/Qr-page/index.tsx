@@ -19,11 +19,12 @@ function QrPage() {
 
   const handleScan = (data: string | null) => {
     if (data) {
+      console.log('wfksdfopsdkfl;sdkf;ldkfl;')
       setQrResult(data)
     }
   }
   const handleError = (err: any) => {
-    console.error(err)
+    console.log(err)
   }
 
   const onClearQr = () => {
@@ -57,14 +58,15 @@ const openImageDialog = () => {
             />
           </div>
           : <WarningContent
-            content={'Зайдите с мобильного устройства'}
+            content={'Зайдите с мобильного устройства или загузите фото QR кода'}
+            openImageDialog={openImageDialog}
           />}
       </> : <QrResult
           onClear={onClearQr}
           result={qrResult}
           openImageDialog={openImageDialog}
         />}
-        {qrResult  &&    <QrReader
+        {!isMobile  &&    <QrReader
               ref={qrRef}
               delay={1000}
               onError={handleError}

@@ -1,20 +1,32 @@
 import React from "react";
 import "./style.scss";
-import  Icon from '../Icon'
+import  Icon from '../Icon';
+import Title from '../Title'
+import Button from '../Button'
+
 interface WarningContent{
-  content: string
+  content: string,
+  openImageDialog: Function
 }
 
 
 function WarningContent(props:WarningContent) {
-  const { content } = props;
+  const { content, openImageDialog } = props;
 
   return (
     <section className="warning">
       <div className="warning__container">
-        <h3>{content}</h3>
+      <Title
+              Tag={'h3'}
+              text={content}
+              position={'center'}
+            />
+                    <Icon  type='phone'/>
+                    <Button 
+                    title='Загрузить фото'
+                    action={openImageDialog}
+                    />
         <div>
-        <Icon  type='phone'/>
         </div>
       </div>
     </section>
