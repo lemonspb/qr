@@ -5,18 +5,24 @@ import ButtonBrowserLink from '../ButtonOpenLink'
 
 interface QrResult {
     result: string,
-    onClear: Function
+    onClear: Function,
+    openImageDialog: Function
 }
 
 
 function QrResult(props: QrResult) {
-    const { result,onClear } = props;
+    const { result,onClear, openImageDialog } = props;
 
     return (
         <section className="qr-result">
             <div className='qr-result__toolbar'><Button title='Назад'
             action={onClear}
-            /></div>
+            />
+            
+            <Button title='Загрузить фото'
+            action={openImageDialog}
+            />
+            </div>
             <div className='qr-result__link-line'>URL: <a href={result} target='_blank' title='Открыть' >{result}</a></div>
             <div className='qr-result__content'>
                 <ButtonBrowserLink 

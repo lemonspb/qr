@@ -33,7 +33,9 @@ function QrPage() {
     console.log(event)
 } 
 
-
+const openImageDialog = () => {
+  qrRef.current.openImageDialog()
+}
 
 
   return (
@@ -47,7 +49,6 @@ function QrPage() {
               position={'center'}
             />
             <QrReader
-              ref={qrRef}
               delay={1000}
               onError={handleError}
               onImageLoad={onImageLoad}
@@ -61,8 +62,18 @@ function QrPage() {
       </> : <QrResult
           onClear={onClearQr}
           result={qrResult}
+          openImageDialog={openImageDialog}
         />}
+        {qrResult  &&    <QrReader
+              ref={qrRef}
+              delay={1000}
+              onError={handleError}
+              onImageLoad={onImageLoad}
+              onScan={handleScan}
+              style={{ width: '100%' }}
+              legacyMode
 
+            />}
     </div>
   );
 }
