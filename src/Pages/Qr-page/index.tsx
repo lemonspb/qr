@@ -4,23 +4,31 @@ import './style.scss';
 import WarningContent from '../../Components/WarningContent'
 import QrResult from '../../Components/QrResult'
 import Title from '../../Components/Title'
-
+import Message from '../../Components/Message'
 
 function QrPage() {
   const [qrResult, setQrResult] = useState('https://cdn.cccs.edu/landing-pages/email-generation.html')
   const [isMobile, setIsMobile] = useState(true)
+  const [errorMessage, setErrorMessage] = useState(false)
   const qrRef:any = useRef()
 
   useEffect(() => {
     if (typeof window.orientation === 'undefined') {
       setIsMobile(false)
     }
-  }, [])
+
+    setTimeout(() => {
+      setErrorMessage(false)
+    }, 5000)
+  }, [errorMessage])
 
   const handleScan = (data: string | null) => {
     if (data) {
       console.log('wfksdfopsdkfl;sdkf;ldkfl;')
       setQrResult(data)
+    }
+    else{
+      setErrorMessage(true)
     }
   }
   const handleError = (err: any) => {
@@ -76,6 +84,8 @@ const openImageDialog = () => {
               legacyMode
 
             />}
+          { errorMessage &&  <Message  text='Невозможно считать QR код'
+             />}
     </div>
   );
 }

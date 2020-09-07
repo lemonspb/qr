@@ -1,0 +1,16 @@
+@import '../../colors.scss';
+
+
+
+.message{
+ position: absolute;
+ background: $red;
+ width: 100%;
+ padding: 40px;
+ bottom: 0;
+ z-index: 2;   
+ color: $white;
+ text-align: center;
+ font-size: 24px;
+font-weight: 500;
+}
