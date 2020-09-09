@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.scss";
 import  Icon from '../Icon';
-import Title from '../Title'
-import Button from '../Button'
+import Title from '../Title';
+import Button from '../Button';
 
 interface WarningContent{
   content: string,

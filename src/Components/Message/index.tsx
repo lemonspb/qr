@@ -4,24 +4,27 @@ import './style.scss'
 
 interface Message {
     text: string,
-    showMessage: boolean
+    showMessage: boolean,
+    setMessage: Function
 }
 
 const Message = (props: Message) => {
-    const { text, showMessage } = props;
+    const { text, showMessage,setMessage } = props;
     const [isShow, setIsShow] = useState(showMessage)
 
     useEffect(() => {
         setIsShow(showMessage)
+        
         setTimeout(() => {
-            setIsShow(false)
+            setMessage(false)
           }, 5000)
       }, [showMessage]) 
 
+      console.log(isShow,'+++++++++++++++++++++++')
 
       const message = classNames({
          message: true,
-        'message--visible': !isShow,
+        'message--visible':!isShow,
         'message--hide': isShow,
     });
 

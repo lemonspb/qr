@@ -20,7 +20,7 @@ const Title = (props: Title) => {
     });
 
     return (
-        <Tag className={title}>
+        <Tag className={`${title} ${className?className:''}`}>
             {text}
         </Tag>
     )

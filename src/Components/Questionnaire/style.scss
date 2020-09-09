@@ -1,0 +1,9 @@
+.questionnaire{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__question{
+        font-size: 24px;
+        font-weight: 500;
+    }
+}

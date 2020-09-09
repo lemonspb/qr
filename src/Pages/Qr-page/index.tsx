@@ -19,8 +19,6 @@ function QrPage() {
   }, [])
 
   const handleScan = (data: string | null) => {
-    setErrorMessage(false)
-
     if (data) {
       setQrResult(data)
     }
@@ -30,7 +28,6 @@ function QrPage() {
     }
   }
   const handleError = (err: any) => {
-    setErrorMessage(true)
 
   }
 
@@ -85,6 +82,7 @@ console.log(errorMessage, '-----------------')
             />}
          <Message  text='Невозможно считать QR код'
           showMessage={errorMessage}
+          setMessage={setErrorMessage}
              />}
     </div>
   );

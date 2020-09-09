@@ -10,7 +10,6 @@ ReactDOM.render(
     <Router>
       <Route path='/' exact component={QrPage} />
       <Route path='/questions' exact component={PageQuestions} />
-
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
