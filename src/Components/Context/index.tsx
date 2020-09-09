@@ -2,7 +2,7 @@ import React from "react";
 import ApplicationServiсes from '../../Services';
 
 
-export const OrganizationContext = React.createContext({
+export const QuestioningContext = React.createContext({
   serviсes: new ApplicationServiсes()
 });
 
@@ -10,17 +10,17 @@ export const OrganizationContext = React.createContext({
   children: React.ReactNode
 }
 
-export const OrganizationProvider: React.FC<Props> = (props) => {
+export const QuestioningProvider: React.FC<Props> = (props) => {
 
   const serviсes = new ApplicationServiсes()
 
   return (
-    <OrganizationContext.Provider
+    <QuestioningContext.Provider
       value={{
         serviсes
       }}
     >
       {props.children}
-    </OrganizationContext.Provider>
+    </QuestioningContext.Provider>
   );
 };
