@@ -1,9 +1,19 @@
+
+@import '../../mixins.scss';
+@import '../../colors.scss';
+
 .questionnaire{
     display: flex;
     align-items: center;
     justify-content: center;
-    &__question{
-        font-size: 24px;
-        font-weight: 500;
+    .sv_main{
+        font-size: 16px;
+    
+    .sv_body{
+        border-top: 2px solid $dark__blue;
+    }
+}
+    .sv_main input[type="button"]{
+        @include default-button
     }
 }

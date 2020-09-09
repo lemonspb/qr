@@ -1,0 +1,18 @@
+@import 'colors.scss';
+
+
+@mixin default-button {
+    border: none;
+    border-radius: .2em;
+    background-color: $blue;
+    color: $white;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.1rem;
+    height: 3em;
+    display: block;
+    transition: background 300ms ease-in-out;
+    &:hover{
+        background-color:$light__blue;
+    }
+  }
