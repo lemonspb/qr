@@ -1,0 +1,7 @@
+.page-quiz {
+  height: 100%;
+  &__wrap {
+    overflow-y: scroll;
+    height: 100%;
+  }
+}
