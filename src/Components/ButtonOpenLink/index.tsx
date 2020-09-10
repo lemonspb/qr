@@ -1,6 +1,7 @@
 import React from "react";
 import './style.scss'
 import Icon from '../Icon'
+
 interface ButtonBrowserLink {
     link?: string
 }
@@ -9,7 +10,7 @@ const ButtonBrowserLink = (props: ButtonBrowserLink) => {
     const { link } = props
 
     return (
-        <a className='button-browser' href={link} target='_blank' >
+        <a className='button-browser' href={link} target='_blank' rel="noopener noreferrer">
             <Icon
                 type={'openBrowser'}/>
             <span>Открыть в новой вкладке браузера</span>

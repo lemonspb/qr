@@ -9,13 +9,11 @@ import { QuizProvider } from '../src/Components/Context';
 import './index.scss';
 
 ReactDOM.render(
-  <React.StrictMode>
     <Router>
       <QuizProvider>
         <Route path='/' exact component={QrPage} />
         <Route path='/quiz/' component={PageQuiz} />
       </QuizProvider>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById('root')
 );

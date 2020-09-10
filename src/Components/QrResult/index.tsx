@@ -25,7 +25,7 @@ function QrResult(props: QrResult) {
                     action={openImageDialog}
                 />
             </div>
-            <div className='qr-result__link-line'>URL: <a href={result} target='_blank' title='Открыть' >{result}</a></div>
+            <div className='qr-result__link-line'>URL: <a href={result} target='_blank' title='Открыть'  rel="noopener noreferrer">{result}</a></div>
             <div className='qr-result__content'>
                 <ButtonBrowserLink
                     link={result}

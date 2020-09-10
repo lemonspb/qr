@@ -6,19 +6,19 @@ interface Params {
 }
 
 export default class ApplicationServiсes {
-    BASE_URL: string = "https://gist.githubusercontent.com/lemonspb/0987f658716b961db76cd70e79bdb244/raw/29796a52108f37e055e1cf7b144954754c831553";
-    getResource = async (type: string) => {
+    BASE_URL: string = "https://gist.githubusercontent.com/lemonspb/0987f658716b961db76cd70e79bdb244/raw/de22f3c88b436e88f999b17bcca5b8601e6f7680/";
+    getResource =  (type: string) => {
         return fetch(`${this.BASE_URL}${type}`)
             .then((res) => {
                 if (!res.ok) {
-                    return false
+                    return res.status
                 }
                 return res.json()
-            })
+            }).catch((e)=>{console.log(e)})
     };
 
-    getListQuestions = async (body: string) => {
-        const res = await this.getResource(body);
+    getListQuestions =  (body: string) => {
+        const res =  this.getResource(body);
         return res
     };
 }
