@@ -2,7 +2,7 @@ import React from "react";
 import './style.scss';
 
 interface Button {
-  title: string
+  title?: string,
   action: Function
 }
 
