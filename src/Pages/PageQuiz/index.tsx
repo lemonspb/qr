@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useState } from 'react';
 
 import Quiz from '../../Components/Quiz';
 import { QuizContext } from '../../Components/Context';
-import {mockupFirst} from '../../Mockups';
 import { Spinner } from '../../Components/Spiner'
 
 import './style.scss';
@@ -29,7 +28,7 @@ function PageQuiz() {
   return (
     <div className='page-quiz'>
       <div className='page-quiz__wrap'>
-        {data ?  <Quiz data={data} /> : <Spinner />
+        {data ?  <Quiz data={data} /> : <div className='page-quiz__loader'><Spinner /></div>
  }
       </div>
     </div>
