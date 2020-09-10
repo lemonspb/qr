@@ -11,7 +11,7 @@ import './style.scss';
 function QrPage() {
   const [qrResult, setQrResult] = useState('')
   const [isMobile, setIsMobile] = useState(true)
-  const [errorMessage, setErrorMessage] = useState(false)
+  // const [errorMessage, setErrorMessage] = useState(false)
   const qrRef: any = useRef()
 
   useEffect(() => {
@@ -24,10 +24,7 @@ function QrPage() {
     if (data) {
       setQrResult(data)
     }
-    else {
-      setErrorMessage(true)
 
-    }
   }
   const handleError = (err: any) => {
 
@@ -81,10 +78,10 @@ function QrPage() {
         legacyMode
 
       />}
-      <Message text='Невозможно считать QR код'
+      {/* <Message text='Невозможно считать QR код'
         showMessage={errorMessage}
         setMessage={setErrorMessage}
-      />}
+      />} */}
     </div>
   );
 }

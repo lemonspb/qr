@@ -8,7 +8,7 @@ import './style.scss';
 
 
 interface Quiz {
-    data: string,
+    data: any,
 }
 
 const Quiz = (props: Quiz) => {
