@@ -1,7 +1,9 @@
 import React from "react";
-import Button  from '../Button'
-import './style.scss'
-import ButtonBrowserLink from '../ButtonOpenLink'
+
+import Button from '../Button';
+import ButtonBrowserLink from '../ButtonOpenLink';
+
+import './style.scss';
 
 interface QrResult {
     result: string,
@@ -11,22 +13,22 @@ interface QrResult {
 
 
 function QrResult(props: QrResult) {
-    const { result,onClear, openImageDialog } = props;
+    const { result, onClear, openImageDialog } = props;
 
     return (
         <section className="qr-result">
             <div className='qr-result__toolbar'><Button title='Назад'
-            action={onClear}
+                action={onClear}
             />
-            
-            <Button title='Загрузить фото'
-            action={openImageDialog}
-            />
+
+                <Button title='Загрузить фото'
+                    action={openImageDialog}
+                />
             </div>
             <div className='qr-result__link-line'>URL: <a href={result} target='_blank' title='Открыть' >{result}</a></div>
             <div className='qr-result__content'>
-                <ButtonBrowserLink 
-                link={result}
+                <ButtonBrowserLink
+                    link={result}
                 />
             </div>
         </section>

@@ -1,18 +1,18 @@
 import React from "react";
 import './style.scss';
 
-interface Button{
-    title: string
-    action: Function
+interface Button {
+  title: string
+  action: Function
 }
 
 
-function Button(props:Button) {
+function Button(props: Button) {
   const { title, action } = props;
 
   return (
-    <button className="button" onClick={()=>action()}>
-    {title}
+    <button className="button" onClick={() => action()}>
+      {title}
     </button>
   );
 }

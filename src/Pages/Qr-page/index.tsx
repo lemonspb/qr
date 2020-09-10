@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import QrReader from 'react-qr-reader';
+
+import WarningContent from '../../Components/WarningContent';
+import QrResult from '../../Components/QrResult';
+import Title from '../../Components/Title';
+import Message from '../../Components/Message';
+
 import './style.scss';
-import WarningContent from '../../Components/WarningContent'
-import QrResult from '../../Components/QrResult'
-import Title from '../../Components/Title'
-import Message from '../../Components/Message'
 
 function QrPage() {
-  const [qrResult, setQrResult] = useState('https://cdn.cccs.edu/landing-pages/email-generation.html')
+  const [qrResult, setQrResult] = useState('')
   const [isMobile, setIsMobile] = useState(true)
   const [errorMessage, setErrorMessage] = useState(false)
-  const qrRef:any = useRef()
+  const qrRef: any = useRef()
 
   useEffect(() => {
     if (typeof window.orientation === 'undefined') {
@@ -22,7 +24,7 @@ function QrPage() {
     if (data) {
       setQrResult(data)
     }
-    else{
+    else {
       setErrorMessage(true)
 
     }
@@ -32,16 +34,15 @@ function QrPage() {
   }
 
   const onClearQr = () => {
-        setQrResult('')
-  } 
-  const onImageLoad = (event:React.SyntheticEvent<HTMLImageElement>) => {
-} 
+    setQrResult('')
+  }
+  const onImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
+  }
 
-const openImageDialog = () => {
-  qrRef.current.openImageDialog()
-}
+  const openImageDialog = () => {
+    qrRef.current.openImageDialog()
+  }
 
-console.log(errorMessage, '-----------------')
 
   return (
     <div className='page-qr'>
@@ -70,20 +71,20 @@ console.log(errorMessage, '-----------------')
           result={qrResult}
           openImageDialog={openImageDialog}
         />}
-        {!isMobile  &&    <QrReader
-              ref={qrRef}
-              delay={1000}
-              onError={handleError}
-              onImageLoad={onImageLoad}
-              onScan={handleScan}
-              style={{ width: '100%' }}
-              legacyMode
+      {!isMobile && <QrReader
+        ref={qrRef}
+        delay={1000}
+        onError={handleError}
+        onImageLoad={onImageLoad}
+        onScan={handleScan}
+        style={{ width: '100%' }}
+        legacyMode
 
-            />}
-         <Message  text='Невозможно считать QR код'
-          showMessage={errorMessage}
-          setMessage={setErrorMessage}
-             />}
+      />}
+      <Message text='Невозможно считать QR код'
+        showMessage={errorMessage}
+        setMessage={setErrorMessage}
+      />}
     </div>
   );
 }

@@ -1,6 +1,6 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import classNames from 'classnames/bind';
-import './style.scss'
+import './style.scss';
 
 interface Message {
     text: string,
@@ -9,32 +9,31 @@ interface Message {
 }
 
 const Message = (props: Message) => {
-    const { text, showMessage,setMessage } = props;
+    const { text, showMessage, setMessage } = props;
     const [isShow, setIsShow] = useState(showMessage)
 
     useEffect(() => {
         setIsShow(showMessage)
-        
+
         setTimeout(() => {
             setMessage(false)
-          }, 5000)
-      }, [showMessage]) 
+        }, 5000)
+    }, [showMessage])
 
-      console.log(isShow,'+++++++++++++++++++++++')
 
-      const message = classNames({
-         message: true,
-        'message--visible':!isShow,
+    const message = classNames({
+        message: true,
+        'message--visible': !isShow,
         'message--hide': isShow,
     });
 
 
     return (
         <>
-    
-        <div className={message}>
-            {text}
-        </div>
+
+            <div className={message}>
+                {text}
+            </div>
         </>
     )
 

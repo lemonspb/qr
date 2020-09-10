@@ -1,26 +1,26 @@
-@import '../../colors.scss';
+@import "../../colors.scss";
 
-.qr-result{
-    &__toolbar{
-        width: 100%;
-        padding: 15px;
-        color: $white;
-        display: flex;
-        justify-content: space-between;
-    }
-    &__link-line{
-        background-color: $white;
-        padding: 15px;
-        width: 100%;
-        margin-bottom: 15px;
-        font-weight: 700;
+.qr-result {
+  &__toolbar {
+    width: 100%;
+    padding: 15px;
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__link-line {
+    background-color: $white;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-weight: 700;
 
-        a{
-            color: $black;
-            text-decoration: none;
-        }
+    a {
+      color: $black;
+      text-decoration: none;
     }
-   &__content{
-       padding: 0 15px;
-   } 
+  }
+  &__content {
+    padding: 0 15px;
+  }
 }

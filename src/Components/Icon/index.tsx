@@ -9,8 +9,6 @@ interface Title {
 const Icon = (props: Title) => {
     const { type } = props;
 
-
-
     return (
         <div>
             {type === 'openBrowser' && <OpenBrowser />}
