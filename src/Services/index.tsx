@@ -6,7 +6,7 @@ interface Params {
 }
 
 export default class ApplicationServiсes {
-    BASE_URL: string = "https://gist.githubusercontent.com/lemonspb/0987f658716b961db76cd70e79bdb244/raw/de22f3c88b436e88f999b17bcca5b8601e6f7680/";
+    BASE_URL: string = "https://gist.githubusercontent.com/lemonspb/0987f658716b961db76cd70e79bdb244/raw/50b9597c53a57938929c7c3d643d4235ccd7194f";
     getResource =  (type: string) => {
         return fetch(`${this.BASE_URL}${type}`)
             .then((res) => {
