@@ -13,7 +13,6 @@
   }
   .sv_main input[type="button"] {
     @include default-button;
-    
   }
   .sv_main .sv_q_rating_item.active .sv_q_rating_item_text {
     background-color: $blue;
