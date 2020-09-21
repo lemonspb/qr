@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import './style.scss'
 
 interface Title {
-    text: string,
+    text?: string,
     className?: string,
     Tag: keyof JSX.IntrinsicElements;
     position?: string

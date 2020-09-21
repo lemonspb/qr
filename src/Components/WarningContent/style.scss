@@ -1,29 +1,28 @@
-@import '../../colors.scss';
+@import "../../colors.scss";
 
-
-.warning{
-    height: 100vh;
+.warning {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 2rem;
+  padding: 20px;
+  text-align: center;
+  &__container {
+    width: 50%;
+    height: 50%;
+    color: $white;
+    background: $blue;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 0.2em;
+    padding: 0 0 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    font-size: 2rem;
-    padding: 20px;
-    text-align: center;
-    &__container{
-        width: 50%;
-        height: 50%;
-        color: $white;
-        background: $blue;
-        box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
-        border-radius: .2em;
-        padding: 0 0 20px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        svg{
-            fill:$white;
-        }
+    justify-content: center;
+    svg {
+      fill: $white;
     }
+  }
 }

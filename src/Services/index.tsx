@@ -1,3 +1,5 @@
+import { BASE_URL } from '../Constants';
+import { IQuiz } from '../Interfaces';
 
 interface Params {
     method: string,
@@ -6,19 +8,39 @@ interface Params {
 }
 
 export default class ApplicationServiсes {
-    BASE_URL: string = "https://gist.githubusercontent.com/lemonspb/0987f658716b961db76cd70e79bdb244/raw/50b9597c53a57938929c7c3d643d4235ccd7194f";
-    getResource =  (type: string) => {
-        return fetch(`${this.BASE_URL}${type}`)
+    getResource = (type: string, params: Params) => {
+        return fetch(`${BASE_URL}${type}`, { ...params })
             .then((res) => {
                 if (!res.ok) {
                     return res.status
                 }
                 return res.json()
-            }).catch((e)=>{console.log(e)})
+            })
     };
 
-    getListQuestions =  (body: string) => {
-        const res =  this.getResource(body);
+    getQuizList = (type: string) => {
+        const params = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+
+        const res = this.getResource(`quiz/${type}`, params);
+        return res
+    };
+
+    sendQuizList = (body: IQuiz) => {
+        const params = {
+            method: 'PUT',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+
+        const res = this.getResource('quiz_result', params);
         return res
     };
 }
+

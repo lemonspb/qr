@@ -1,6 +1,6 @@
-@import '../../colors.scss';
-@import '../../mixins.scss';
+@import "../../colors.scss";
+@import "../../mixins.scss";
 
-.button{
-    @include default-button;
+.button {
+  @include default-button;
 }
