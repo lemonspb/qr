@@ -11,7 +11,6 @@ import './style.scss';
 function QrPage() {
   const [qrResult, setQrResult] = useState('')
   const [isMobile, setIsMobile] = useState(true)
-  // const [errorMessage, setErrorMessage] = useState(false)
   const qrRef: any = useRef()
 
   useEffect(() => {
@@ -51,6 +50,7 @@ function QrPage() {
               text={'Отсканируйте QR код'}
               position={'center'}
             />
+            <div className='page-qr__reader-wrap'>
             <QrReader
               delay={1000}
               onError={handleError}
@@ -58,6 +58,7 @@ function QrPage() {
               onScan={handleScan}
               style={{ width: '100%' }}
             />
+            </div>
           </div>
           : <WarningContent
             content={'Зайдите с мобильного устройства или загузите фото QR кода'}
@@ -68,6 +69,7 @@ function QrPage() {
           result={qrResult}
           openImageDialog={openImageDialog}
         />}
+        <div className='page-qr__reader-wrap'>
       {!isMobile && <QrReader
         ref={qrRef}
         delay={1000}
@@ -78,6 +80,7 @@ function QrPage() {
         legacyMode
 
       />}
+      </div>
       {/* <Message text='Невозможно считать QR код'
         showMessage={errorMessage}
         setMessage={setErrorMessage}

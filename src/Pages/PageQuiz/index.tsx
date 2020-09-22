@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import { Question, IQuiz } from '../../Interfaces';
 import Quiz from '../../Components/Quiz';
 import { QuizContext } from '../../Components/Context';
-import { Spinner } from '../../Components/Spiner';
+import { Spinner } from '../../Components/Spinner';
 import './style.scss';
 
 function PageQuiz() {
@@ -10,10 +10,9 @@ function PageQuiz() {
   const { serviсes } = useContext(QuizContext)
   const [data, setData] = useState<IQuiz>()
   // получаем необходимый id из pathname каждого опроса
-  const path = window.location.pathname.split('/')[2]
-
+  const path = window.location.pathname.split('/')[2] 
   useEffect(() => {
-    serviсes.getQuizList(`15`).then((result: IQuiz) => {
+    serviсes.getQuizList(path).then((result: IQuiz) => {
       delete result.showQuestionNumbers
       result.questions!.map((res: Question) => {
         if (res.type === "rating") {
@@ -41,7 +40,7 @@ function PageQuiz() {
   return (
     <div className='page-quiz'>
       <div className='page-quiz__wrap'>
-        {data ? <Quiz data={data} /> : <Spinner />}
+        {data ? <Quiz data={data} /> : <div className="page-quiz__loader"><Spinner /></div>}
       </div>
     </div>
 

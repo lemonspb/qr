@@ -3,4 +3,24 @@
 .page-qr {
   height: 100%;
   background: $gray;
+  &__reader-wrap {
+    width: 100%;
+    height: 100%;
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      section {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        padding-top: 0 !important;
+        img{
+          position: relative;
+        }
+      }
+    }
+  }
 }
