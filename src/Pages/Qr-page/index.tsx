@@ -58,7 +58,6 @@ function QrPage() {
                 onImageLoad={onImageLoad}
                 onScan={handleScan}
                 style={{ width: '100%' }}
-                legacyMode={isMobile && qrResult ? true : false}
               />
             </div>
           </div>
@@ -72,7 +71,7 @@ function QrPage() {
           openImageDialog={openImageDialog}
         />}
       <div className='page-qr__reader'>
-        {!isMobile && <QrReader
+        {qrResult && <QrReader
           ref={qrRef}
           delay={500}
           onError={handleError}
@@ -83,10 +82,6 @@ function QrPage() {
 
         />}
       </div>
-      {/* <Message text='Невозможно считать QR код'
-        showMessage={errorMessage}
-        setMessage={setErrorMessage}
-      />} */}
     </div>
   );
 }

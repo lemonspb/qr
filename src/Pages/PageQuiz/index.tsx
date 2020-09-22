@@ -14,6 +14,11 @@ function PageQuiz() {
   useEffect(() => {
     serviсes.getQuizList(path).then((result: IQuiz) => {
       delete result.showQuestionNumbers
+      console.log(result)
+      if(result.status){
+        return
+      }
+      else{
       result.questions!.map((res: Question) => {
         if (res.type === "rating") {
           /**
@@ -32,6 +37,7 @@ function PageQuiz() {
           res.html = html
         }
       })
+    }
       setData(result)
 
     })

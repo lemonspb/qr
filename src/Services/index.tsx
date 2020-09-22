@@ -6,13 +6,20 @@ interface Params {
     body?: string,
     headers: {}
 }
+interface Result {
+    method: string,
+    body?: string,
+    headers: {}
+}
 
 export default class ApplicationServiсes {
     getResource = (type: string, params: Params) => {
         return fetch(`${BASE_URL}${type}`, { ...params })
             .then((res) => {
                 if (!res.ok) {
-                    return res.status
+                    const result:IQuiz = {}
+                    result.status = res.status
+                    return result
                 }
                 return res.json()
             })

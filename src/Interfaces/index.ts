@@ -15,10 +15,11 @@ export interface Question {
 }
 
 export interface IQuiz {
-  cookieName: string;
-  id: number;
-  locale: string;
+  cookieName?: string;
+  id?: number;
+  locale?: string;
   questions?: Question[];
   showQuestionNumbers?: true;
-  title: string;
+  title?: string;
+  status?: number
 }
