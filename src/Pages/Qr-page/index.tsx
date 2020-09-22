@@ -50,9 +50,9 @@ function QrPage() {
               text={'Отсканируйте QR код'}
               position={'center'}
             />
-            <div className='page-qr__reader-wrap'>
+            <div className='page-qr__reader'>
             <QrReader
-              delay={1000}
+              delay={500}
               onError={handleError}
               onImageLoad={onImageLoad}
               onScan={handleScan}
@@ -69,10 +69,10 @@ function QrPage() {
           result={qrResult}
           openImageDialog={openImageDialog}
         />}
-        <div className='page-qr__reader-wrap'>
+        <div className='page-qr__reader'>
       {!isMobile && <QrReader
         ref={qrRef}
-        delay={1000}
+        delay={500}
         onError={handleError}
         onImageLoad={onImageLoad}
         onScan={handleScan}
