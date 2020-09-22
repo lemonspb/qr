@@ -43,7 +43,7 @@ function QrPage() {
   return (
     <div className='page-qr'>
       {!qrResult ? <>
-        {isMobile ?
+        {isMobile && !qrResult ?
           <div className='page-qr__wrap'>
             <Title
               Tag={'h2'}
@@ -51,13 +51,15 @@ function QrPage() {
               position={'center'}
             />
             <div className='page-qr__reader'>
-            <QrReader
-              delay={500}
-              onError={handleError}
-              onImageLoad={onImageLoad}
-              onScan={handleScan}
-              style={{ width: '100%' }}
-            />
+              <QrReader
+                ref={qrRef}
+                delay={500}
+                onError={handleError}
+                onImageLoad={onImageLoad}
+                onScan={handleScan}
+                style={{ width: '100%' }}
+                legacyMode={isMobile && qrResult ? true : false}
+              />
             </div>
           </div>
           : <WarningContent
@@ -69,17 +71,17 @@ function QrPage() {
           result={qrResult}
           openImageDialog={openImageDialog}
         />}
-        <div className='page-qr__reader'>
-      {!isMobile && <QrReader
-        ref={qrRef}
-        delay={500}
-        onError={handleError}
-        onImageLoad={onImageLoad}
-        onScan={handleScan}
-        style={{ width: '100%' }}
-        legacyMode
+      <div className='page-qr__reader'>
+        {!isMobile && <QrReader
+          ref={qrRef}
+          delay={500}
+          onError={handleError}
+          onImageLoad={onImageLoad}
+          onScan={handleScan}
+          style={{ width: '100%' }}
+          legacyMode={true}
 
-      />}
+        />}
       </div>
       {/* <Message text='Невозможно считать QR код'
         showMessage={errorMessage}
