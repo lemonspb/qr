@@ -4,7 +4,6 @@ import QrReader from 'react-qr-reader';
 import WarningContent from '../../Components/WarningContent';
 import QrResult from '../../Components/QrResult';
 import Title from '../../Components/Title';
-import Message from '../../Components/Message';
 
 import './style.scss';
 
@@ -32,8 +31,7 @@ function QrPage() {
   const onClearQr = () => {
     setQrResult('')
   }
-  const onImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
-  }
+ 
 
   const openImageDialog = () => {
     qrRef.current.openImageDialog()
@@ -55,7 +53,6 @@ function QrPage() {
                 ref={qrRef}
                 delay={500}
                 onError={handleError}
-                onImageLoad={onImageLoad}
                 onScan={handleScan}
                 style={{ width: '100%' }}
               />
@@ -71,11 +68,10 @@ function QrPage() {
           openImageDialog={openImageDialog}
         />}
       <div className='page-qr__reader'>
-        {qrResult && <QrReader
+        {!isMobile && <QrReader
           ref={qrRef}
           delay={500}
           onError={handleError}
-          onImageLoad={onImageLoad}
           onScan={handleScan}
           style={{ width: '100%' }}
           legacyMode={true}

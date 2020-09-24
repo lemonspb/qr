@@ -13,12 +13,12 @@ function PageQuiz() {
   const path = window.location.pathname.split('/')[2] 
   useEffect(() => {
     serviсes.getQuizList(path).then((result: IQuiz) => {
-      delete result.showQuestionNumbers
-      console.log(result)
       if(result.status){
         return
       }
       else{
+        
+      delete result.showQuestionNumbers
       result.questions!.map((res: Question) => {
         if (res.type === "rating") {
           /**

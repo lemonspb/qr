@@ -16,7 +16,25 @@ const Quiz = (props:QuizProps) => {
 
     const { serviсes } = useContext(QuizContext)
     const [questions, setQuestions] = useState<Question[] | undefined>(data.questions)
+
+
+    const saveStateQuiz = (survey:any) => {
+        const res = {
+            data: survey.data
+        };
+        window.localStorage.setItem(`quizid-${data.id}`, JSON.stringify(res));
+    }
+  
+    const loadStateQuiz = (survey:any) => {
+        const quizFromLocalStorage = window.localStorage.getItem(`quizid-${data.id}`) || ''
+        console.log(quizFromLocalStorage)
+        if(quizFromLocalStorage){
+           survey.data = JSON.parse(quizFromLocalStorage).data
+        }
+  }
+
     const surveyValueChanged = function (sender: any, options: any) {
+        console.log(sender.data)
         const  resulQuestionst  = questions!.map((res:Question)=>{
             if(res.name === options.name){
                 res.result = options.value
@@ -24,7 +42,7 @@ const Quiz = (props:QuizProps) => {
             return res
         })
         setQuestions(resulQuestionst)
-        console.log(questions)
+        saveStateQuiz(sender)
     };
 
     const onComplete = function() {
@@ -40,13 +58,14 @@ const Quiz = (props:QuizProps) => {
         setQuestions(newQuestions)
         const sendData = {...data, questions}
         serviсes.sendQuizList(sendData)
+        window.localStorage.removeItem(`quizid${data.id}`);
     }
     return (
         <div className='quiz'>
             <Survey.Survey json={data}
                 onValueChanged={surveyValueChanged}
                 onComplete={onComplete} 
-            
+                onAfterRenderSurvey={loadStateQuiz}
             />
         </div>
     )
