@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useDebugValue } from 'react';
 import QrReader from 'react-qr-reader';
 
 import WarningContent from '../../Components/WarningContent';
@@ -36,10 +36,22 @@ function QrPage() {
   const openImageDialog = () => {
     qrRef.current.openImageDialog()
   }
+const getUsb  = () =>{
+  async () => {
+    let devices = await navigator.usb.getDevices();
+    devices.forEach(device => {
+      // Add |device| to the UI.
+      console.log(device);
+    });
+}
+}
 
 
   return (
     <div className='page-qr'>
+            <button onClick={()=>{getUsb()}}>
+          нажать
+          </button>
       {!qrResult ? <>
         {isMobile && !qrResult ?
           <div className='page-qr__wrap'>
@@ -67,6 +79,7 @@ function QrPage() {
           result={qrResult}
           openImageDialog={openImageDialog}
         />}
+
       <div className='page-qr__reader'>
         {!isMobile && <QrReader
           ref={qrRef}
