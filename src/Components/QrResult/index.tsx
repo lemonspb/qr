@@ -15,6 +15,18 @@ interface QrResult {
 function QrResult(props: QrResult) {
     const { result, onClear, openImageDialog } = props;
 
+    const getUsb  = () =>{
+        async () => {
+          let devices = await navigator.usb.getDevices();
+          devices.forEach(device => {
+            // Add |device| to the UI.
+            console.log(device);
+          });
+      }
+      }
+      
+
+
     return (
         <section className="qr-result">
             <div className='qr-result__toolbar'><Button title='Назад'
@@ -24,6 +36,9 @@ function QrResult(props: QrResult) {
                 <Button title='Загрузить фото'
                     action={openImageDialog}
                 />
+                     <button onClick={()=>{getUsb()}}>
+          нажать
+          </button>
             </div>
             <div className='qr-result__link-line'>URL: <a href={result} target='_blank' title='Открыть'  rel="noopener noreferrer">{result}</a></div>
             <div className='qr-result__content'>
